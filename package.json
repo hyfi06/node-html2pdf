@@ -1,0 +1,22 @@
+{
+  "name": "html2pdf",
+  "version": "0.1.0",
+  "description": "Create a pdf from an html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyfi06/node-html2pdf.git"
+  },
+  "keywords": [
+    "pdf"
+  ],
+  "author": "Hector Olvera-Vital<hector@hyfi.dev>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hyfi06/node-html2pdf/issues"
+  },
+  "homepage": "https://github.com/hyfi06/node-html2pdf#readme"
+}
