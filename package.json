@@ -1,7 +1,7 @@
 {
   "name": "@hyfi06/html2pdf",
   "version": "1.0.0",
-  "description": "Create a pdf from an html",
+  "description": "Create pdf from html string. Express middleware.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0"
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/hyfi06/node-html2pdf#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "puppeteer": "^3.1.0"
   },
   "devDependencies": {

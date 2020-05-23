@@ -1,6 +1,6 @@
 # @hyfi06/html2pdf
 
-Create a pdf from an html. Express middleware.
+Create pdf from html string. Express middleware.
 
 ## Install
 
