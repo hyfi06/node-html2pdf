@@ -54,8 +54,8 @@ async function expressHTML2PDF({
   const res = this;
 
   if (!htmlString) {
-    res.sendStatus(500).end()
-    throw new Error('htmlString is required', 'htmlString must be a string')
+    res.sendStatus(500).end();
+    throw new Error('htmlString is required', 'htmlString must be a string');
   }
 
   typingCheck(res, filename, 'string', 'filename must be a string');
