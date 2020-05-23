@@ -19,7 +19,7 @@ function typingCheck(res, variable, type, message) {
 }
 
 /**
- * Create a response with 
+ * Create response with content-type application/pdf and stream
  * @param {*} res 
  * @param {string} filename 
  * @param {string} htmlString 
