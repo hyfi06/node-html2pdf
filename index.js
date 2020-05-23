@@ -2,7 +2,7 @@
 Copyright (c) 2020 Hector Olvera-Vital
 Licensed under the MIT License
 */
-const html2pdf = require('./lib/html2pdf');
+const HTML2PDF = require('./lib/html2pdf');
 
 /**
  * Check the type of variables
@@ -19,7 +19,7 @@ function typingCheck(res, variable, type, message) {
 }
 
 /**
- * Create a response 
+ * Create a response with 
  * @param {*} res 
  * @param {string} filename 
  * @param {string} htmlString 
@@ -30,14 +30,22 @@ async function createResponse(res, filename, htmlString, options) {
   res.header('Content-Disposition', `inline; filename="${filename}"`);
   res.header('Content-Transfer-Encoding', 'binary');
 
-  const pdfStream = await html2pdf(htmlString, options);
+  const pdfStream = await HTML2PDF(htmlString, options);
 
   pdfStream.pipe(res);
   pdfStream.on('end', function () {
-    res.sendStatus(200).end();
+    res.end();
   });
 }
 
+
+/**
+ * Check params and call response
+ * @param {Object} object
+ * @param {string} object.filename
+ * @param {string} object.htmlString
+ * @param {Object} object.options
+ */
 async function expressHTML2PDF({
   filename = 'file.pdf',
   htmlString,
