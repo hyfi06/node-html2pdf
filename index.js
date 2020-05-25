@@ -6,10 +6,10 @@ const HTML2PDF = require('./lib/html2pdf');
 
 /**
  * Check the type of variables
- * @param {Object} res 
- * @param {*} variable 
- * @param {string} type 
- * @param {string} message 
+ * @param {Object} res response
+ * @param {*} variable value of variable
+ * @param {string} type type of variable
+ * @param {string} message error message
  */
 function typingCheck(res, variable, type, message) {
   if (typeof variable !== `${type}`) {
@@ -20,17 +20,18 @@ function typingCheck(res, variable, type, message) {
 
 /**
  * Create response with content-type application/pdf and stream
- * @param {*} res 
- * @param {string} filename 
- * @param {string} htmlString 
- * @param {object} options 
+ * @param {*} res response
+ * @param {string} filename PDF name
+ * @param {string} htmlString PDF content as html string
+ * @param {object} options options of puppeteer pdf
+ * @param {string[]} lunchArgs args of puppeteer launch
  */
-async function createResponse(res, filename, htmlString, options) {
+async function createResponse(res, filename, htmlString, options, lunchArgs) {
   res.header('Content-Type', 'application/pdf');
   res.header('Content-Disposition', `inline; filename="${filename}"`);
   res.header('Content-Transfer-Encoding', 'binary');
 
-  const pdfStream = await HTML2PDF(htmlString, options);
+  const pdfStream = await HTML2PDF(htmlString, options, lunchArgs);
 
   pdfStream.pipe(res);
   pdfStream.on('end', function () {
@@ -42,14 +43,16 @@ async function createResponse(res, filename, htmlString, options) {
 /**
  * Check params and call response
  * @param {Object} object
- * @param {string} object.filename
- * @param {string} object.htmlString
- * @param {Object} object.options
+ * @param {string} object.filename PDF name
+ * @param {string} object.htmlString PDF content as html string
+ * @param {Object} object.options options of puppeteer pdf
+ * @param {string[]} object.lunchArgs args of puppeteer launch
  */
 async function expressHTML2PDF({
   filename = 'file.pdf',
   htmlString,
   options,
+  lunchArgs
 }) {
   const res = this;
 
@@ -65,7 +68,8 @@ async function expressHTML2PDF({
     res,
     filename,
     htmlString,
-    options
+    options,
+    lunchArgs
   );
 }
 
