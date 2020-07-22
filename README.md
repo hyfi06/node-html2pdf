@@ -63,7 +63,7 @@ module.exports = pdfApi;
 ```js
 res.html2pdf({
       filename: '',
-      htmlString: ',
+      htmlString: '',
       [options],
       [launchArgs]
     });
