@@ -96,6 +96,6 @@ res.html2pdf({
 
 - `launchArgs` <[Array]<[string]> Additional arguments to pass to the browser instance. The list of Chromium flags can be found [here](http://peter.sh/experiments/chromium-command-line-switches/), and here is the list of [Firefox flags](https://developer.mozilla.org/en-US/docs/Mozilla/Command_Line_Options).
 
-## Licence
+## License
 
 Licensed under the [MIT License](https://github.com/hyfi06/node-html2pdf/blob/master/LICENSE).
