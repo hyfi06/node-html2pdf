@@ -1,6 +1,6 @@
 {
   "name": "@hyfi06/html2pdf",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Create pdf from html string. Express middleware.",
   "main": "index.js",
   "scripts": {
